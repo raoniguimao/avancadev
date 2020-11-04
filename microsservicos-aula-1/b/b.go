@@ -22,7 +22,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	coupon := r.PostFormValue("coupon")
 	ccNumber := r.PostFormValue("ccNumber")
 
-	resultCoupon := makeHttpCall("http://localhost:9092", coupon)
+	resultCoupon := makeHTTPCall("http://localhost:9092", coupon)
 
 	result := Result{Status: "declined"}
 
@@ -43,7 +43,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 
-func makeHttpCall(urlMicroservice string, coupon string) Result {
+func makeHTTPCall(urlMicroservice string, coupon string) Result {
 
 	values := url.Values{}
 	values.Add("coupon", coupon)
